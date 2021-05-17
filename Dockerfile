@@ -1,6 +1,6 @@
 FROM adoptopenjdk:16-jre-hotspot
 LABEL key="Redys Profix"
-RUN apt-get --no-cache install curl ca-certificates openssl git tar bash sqlite fontconfig \
+RUN apt-get -y install curl ca-certificates openssl git tar bash sqlite fontconfig \
     && adduser --disabled-password --home /home/container container
 
 USER container
