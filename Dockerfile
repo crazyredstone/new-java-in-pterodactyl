@@ -1,5 +1,4 @@
-FROM alpine
-FROM adoptopenjdk:16-jre-hotspot
+FROM adoptopenjdk:16-jre-hotspot-alpine
 LABEL key="Redys Profix"
 RUN apk add --no-cache --update curl ca-certificates openssl git tar bash sqlite fontconfig \
     && adduser --disabled-password --home /home/container container
