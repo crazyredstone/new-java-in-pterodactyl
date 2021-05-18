@@ -1,7 +1,7 @@
-FROM debian:buster-slim
+FROM alpine
 FROM adoptopenjdk:16-jre-hotspot
 LABEL key="Redys Profix"
-RUN apt-get -y install curl ca-certificates openssl git tar bash sqlite3 fontconfig \
+RUN apk add --no-cache --update curl ca-certificates openssl git tar bash sqlite fontconfig \
     && adduser --disabled-password --home /home/container container
 USER container
 ENV USER=container HOME=/home/container
