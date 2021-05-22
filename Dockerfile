@@ -6,5 +6,5 @@ USER container
 ENV USER=container HOME=/home/container
 FROM adoptopenjdk:latest
 WORKDIR /home/container
-COPY ./entrypoint.sh /entrypoint.s
+COPY ./entrypoint.sh /entrypoint.sh
 CMD ["/bin/bash","/entrypoint.sh"]
