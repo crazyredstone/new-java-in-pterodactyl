@@ -1,10 +1,10 @@
-FROM alpine
+FROM adoptopenjdk:hotspot
 LABEL key="Redys Profix"
-RUN apk add --no-cache --update curl ca-certificates openssl git tar bash sqlite fontconfig \
-    && adduser --disabled-password --home /home/container container
+RUN apt-get update -y && apt-get install -y --no-install-recommends curl ca-certificates openssl tar sqlite \
+    && rm -rf /var/lib/apt/lists/* \ 
+    && adduser --disabled-password --home /home/container container 
 USER container
 ENV USER=container HOME=/home/container
-FROM adoptopenjdk:latest
 WORKDIR /home/container
 COPY ./entrypoint.sh /entrypoint.sh
 CMD ["/bin/bash","/entrypoint.sh"]
